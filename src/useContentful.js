@@ -16,12 +16,13 @@ const useContentful = () => {
       const entries = await client.getEntries({
         content_type: 'menuItem',
         select: 'fields',
+        order: 'fields.positon'
       })
 
       const sanitizedEntries = entries.items.map((item, index) => {
         return {
           ...item.fields,
-          index
+          index,
         }
       })
 
